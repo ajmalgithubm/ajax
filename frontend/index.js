@@ -10,6 +10,9 @@ inputSubmit.addEventListener('click', () => {
         body: JSON.stringify({
             text: inputText.value,
             id: Date.now()
-        })
+        }),
+        success:()=>{
+            
+        }
     })
 })
