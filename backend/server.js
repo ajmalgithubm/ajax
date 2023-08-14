@@ -7,12 +7,10 @@ app.use(cors())
 app.use(express.json())
 app.use(express.static('view'))
 
-app.post('/login', (req, res) => {
-    userHelpers.addText(req.body).then((doc) => {
-        console.log("data added successfully")
-    }).catch(err => {
-        console.log("some error occur when adding the data")
-    })
+app.post('/login',async (req, res) => {
+   const doc = await userHelpers.addText(req.body);
+   const textObject = await userHelpers.getText(doc.insertedId)
+   res.json(textObject)
 })
  
 
